@@ -118,7 +118,8 @@ LICENSING SYSTEM
 ------------------------------------------------------------
 
 Framework includes footer hash integrity check.
-If modified without permission, interface locks.
+If modified without permission, interface locks. 
+Remove if used for projects not requireing enforce.
 
 ------------------------------------------------------------
 USAGE
