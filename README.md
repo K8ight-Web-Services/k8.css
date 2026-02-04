@@ -1,5 +1,5 @@
 
-K8 UI FRAMEWORK — COMPLETE DOCUMENTATION
+K8 UI FRAMEWORK — COMPLETE DOCUMENTATION k8.css & k8.js
 =========================================
 
 **K8** is a lightweight modular CSS + JavaScript UI framework built for responsive web apps, dashboards, admin panels, and dynamic systems.
