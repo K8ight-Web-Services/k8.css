@@ -14,7 +14,7 @@ function k8_open() {
     overlayBg.style.display = "block";
   }
 }
-let footerHash = "";
+/*let footerHash = "";
 
 crypto.subtle.digest(
   "SHA-256",
@@ -28,7 +28,7 @@ crypto.subtle.digest(
 if(footerHash !=="19067cba05d1d56d094cb71380a25124dc088cfe1386448579c51cb5ccfa7f0c"){
 	 document.querySelector("body").innerHTML="<h1 class='k8-text-red k8-padding'>License void — base code tampered. Refer: KOSLv1 <a href='https://raw.githubusercontent.com/k8ight/k8ight/refs/heads/main/LICENSE' class='k8-text-blue'>https://raw.githubusercontent.com/k8ight/k8ight/refs/heads/main/LICENSE</a></h1>";
 }
-});
+});*/
 
 const formatter = new Intl.NumberFormat('en-IN', {
   style: 'currency',
@@ -251,11 +251,29 @@ form.dataset.bound = "true";
       notice.innerHTML = "";
 
       if (result.trim() === "200") {
-        notice.innerHTML = success;
-		if (callback && typeof callback === "function") {
-                    await callback(); // await in case it's async
-                }
-      } else {
+    notice.innerHTML = success;
+
+    // 🔥 Transform submit button → Close button
+    btn.type = "button";
+
+    // remove existing color classes (safe reset)
+    btn.classList.remove("k8-green","k8-red","k8-blue","k8-orange");
+    btn.classList.add("k8-indigo");
+
+    btn.innerHTML = "<i class='fa fa-xmark'></i> Close Window";
+
+    // remove old submit behavior just in case
+    btn.onclick = null;
+
+    // attach close modal action
+    btn.addEventListener("click", function () {
+        closeModal(this);
+    });
+
+    if (callback && typeof callback === "function") {
+        await callback();
+    }
+} else {
         notice.innerHTML = failed;
       }
     } catch (error) {
@@ -603,3 +621,4 @@ function setfilter(el){
 document.getElementById("filter").value=el.id;	
 searchTable();
 }
+
